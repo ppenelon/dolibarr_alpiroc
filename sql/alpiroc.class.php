@@ -227,7 +227,7 @@ function fetchValueFromProfil($col,$profil)
             if ($this->db->num_rows($resql))
             {
                 $obj = $this->db->fetch_object($resql);  
-		$this->name = empty($obj->profilalpiroc) ? 'default' : '';
+		$this->name = empty($obj->profilalpiroc) ? 'default' : $obj->profilalpiroc;
             }
             $this->db->free($resql);
 
