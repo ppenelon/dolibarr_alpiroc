@@ -1,7 +1,15 @@
 <?php
 
-//Fonction qui calcul la hauteur optimal du logos pour la template Alpiroc
-function pdf_getHeightForLogoAlpiroc($logo, $url = false)
+/**
+ * Fonction qui calcule la hauteur optimal du logos pour la template Alpiroc
+ * 
+ * @param string $logo Chemin vers le logo
+ * @param int $page Numéro de la page en cours du PDF
+ * @param boolean $url From Dolibarr : Image with url (true or false)
+ * 
+ * @return string
+ */
+function pdf_getHeightForLogoAlpiroc($logo, $page = 1, $url = false)
 	{
 		global $conf;
 		$height=(empty($conf->global->MAIN_DOCUMENTS_LOGO_HEIGHT)?30:$conf->global->MAIN_DOCUMENTS_LOGO_HEIGHT);
@@ -16,7 +24,7 @@ function pdf_getHeightForLogoAlpiroc($logo, $url = false)
 			}
 		}
 		//print $tmp['width'].' '.$tmp['height'].' '.$width; exit;
-		return $height;
+		return $page > 1 ? $height / 2 : $height;
 	}
 
 

@@ -1909,7 +1909,7 @@ class pdf_alpiroc_fact extends ModelePDFFactures
 			if (is_readable($logo))
 			{
 			    //Utilise une nouvelle fonction qui dimmenssionne le logo de manière optimale => 3cm de haut si possible sinon moins en fonciton de la largeur
-			    $height=pdf_getHeightForLogoAlpiroc($logo);
+			    $height=pdf_getHeightForLogoAlpiroc($logo, $pdf->getPage());
 			    //$height=30;// Hauteur du logos Alpiroc !
 			    $pdf->Image($logo, $this->marge_gauche, $posy, 0, $height);	// width=0 (auto)
 			}
